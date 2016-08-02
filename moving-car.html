@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas class="the-canvas" width="1000px" height="800px">
+		<!-- Canvas is just an empty palette on which to draw -->
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementsByClassName('the-canvas')[0];
+		// The context is the actual ability to draw
+		var context = canvas.getContext('2d');
+		var rectX = 15;
+		var backX = 50;
+		var frontX = 180;
+			function rect(){
+				context.fillStyle = '#0000DD';
+				context.beginPath();
+				context.rect(rectX,30,200,100);
+				context.stroke();
+				context.fill();
+				rectX += 4;
+			}
+			function backWheel(){
+				context.fillStyle = '#000';
+				context.beginPath();
+				context.arc(backX,130,30, 0*Math.PI, 2*Math.PI);
+				context.fill();
+				backX += 4;
+			}
+			function frontWheel(){
+				context.fillStyle = '#000';
+				context.beginPath();
+				context.arc(frontX,130,30, 0*Math.PI, 2*Math.PI);
+				context.fill();
+				frontX += 4;
+			}
+			var car = setInterval(function(){
+				context.clearRect(0,0,1000,800);
+				rect();
+				backWheel();
+				frontWheel();
+			}, 40);
+	</script>
+</body>
+</html>

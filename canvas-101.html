@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas class="the-canvas" height="600px" width="800px">
+		<!-- Canvas is just an empty palette on which to draw -->
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementsByClassName('the-canvas')[0];
+		// The context is the actual ability to draw
+		var context = canvas.getContext('2d');
+		// You must tell it to begin
+		context.beginPath();
+		// This is where I want you to start
+		context.moveTo(100,100);//Manually
+		context.lineTo(200,200);//Tell
+		context.lineTo(300,100);//The
+		context.lineTo(100,200);//brush
+		context.lineTo(300,150);//where to
+		context.lineTo(100,100);//draw
+		context.strokeStyle = '#FF0000';
+		// Fill in the line
+		context.stroke();
+		// Draw a circle
+		context.beginPath();
+		context.fillStyle = '#FFFF00';
+		context.arc(175,175,50, 0*Math.PI, 2*Math.PI);
+		context.fill();
+		// Draw a rectangle
+		context.beginPath();
+		context.fillStyle = '#0000DD';
+		context.rect(300,20,100,100);
+		context.stroke();
+		context.fill();
+		var x = 100;
+		var y = 100;
+		var a = 50;
+		var radius = 50;
+		var endArc = 2;
+		var r = 0;
+		var g = 0;
+		var b = 0;
+		function draw(){
+			context.fillStyle = '#000';
+			context.beginPath();
+			context.clearRect(0,0,800,600);
+			context.arc(x,y,radius,0,endArc*Math.PI);
+			context.fill();
+			x += 4;
+			y += 2;
+			radius += 1;
+			endArc += .1;
+		}
+		function drawTwo(){
+			context.fillStyle = '#000';
+			context.beginPath();
+			context.clearRect(0,0,800,600);
+			context.arc(a,y,radius,0,endArc*Math.PI);
+			context.fill();
+			x += 4;
+			a += 2;
+		}
+	</script>
+</body>
+</html>
